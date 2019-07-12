@@ -50,10 +50,11 @@ def get_random_ip(ip_list):
     proxy_ip = {'http:':random_ip}
     return proxy_ip
 
-file=open("D:/TP/91/jhy/91自拍达人原创申请/2019-06-01_1.txt")
+file=open("C:/workspace/downPic-python/jh/91自拍达人原创申请/2019-07-12_1.txt")
 ip_list=get_ip_list(proxyipurl)
-preUrl='http://f412.botkoplak.com/'
-#获取总行数
+preUrl='http://f.w24.rocks/'
+osPrePath='C:/Users/23948/Pictures/Camera Roll/'
+#获取总行
 for num,value in enumerate(file,1):
     print('第'+str(num)+'行：')
     line=value.strip('\n')
@@ -70,24 +71,27 @@ for num,value in enumerate(file,1):
     ind=title.index('-')
     newTitle=title[0:ind]
     print(str(newTitle.strip()))
+    
     imgUrls=itemSoup.select("body div[id='wrap'] div[id='postlist'] div[id] table tr td[class='postcontent'] div[class='defaultpost'] table tr td img[file]")
     imgUrls2 = itemSoup.select("body div[id='wrap'] div[id='postlist'] div[id] table tr td[class='postcontent'] div[class='defaultpost'] div div table tr td img[file]")
     imgUrls1 = itemSoup.select("body div[id='wrap'] div[id='postlist'] div[id] table tr td[class='postcontent'] div[class='defaultpost'] div div div[class='postattachlist'] dl dd p img[file]")
     imgUrls4 = itemSoup.select("body div[id='wrap'] div[id='postlist'] div[id] table tr td[class='postcontent'] div[class='defaultpost'] div div table tbody tr td a[href]")
     print('图片数量：'+str(len(imgUrls)) + '；图片数量1：'+str(len(imgUrls1)) + '；图片数量2：'+str(len(imgUrls2)) + '；图片数量4：'+str(len(imgUrls4)))
     if len(imgUrls)==0 and len(imgUrls1)==0 and len(imgUrls2)==0 and len(imgUrls4)==0:
-        os.chdir('D:/TP/91/jhy/91自拍达人原创申请/')
+        os.chdir(osPrePath)
         f=open(datetime.datetime.now().strftime('%Y-%m-%d')+'_未下载.txt','a+')
-        f.write('第'+str(num)+'行：'+line+','+newTitle+'\n')
+        #f.write('第'+str(num)+'行：'+line+','+newTitle+'\n')
         f.close()
     else:   
-        path='D:/TP/91/jhy/91自拍达人原创申请/'+datetime.datetime.now().strftime('%Y-%m-%d')+'/'+str(newTitle.strip())+'/'
+        path=osPrePath+datetime.datetime.now().strftime('%Y-%m-%d')+'/'+str(newTitle.strip())+'/'
+        #path=osPrePath+datetime.datetime.now().strftime('%Y-%m-%d')+'/'+str('救赎-只缘感君一回顾 使我思君朝与暮')+'/'
         if not(os.path.exists(path)):
             os.makedirs(path)
             os.chdir(path)
         os.chdir(path)
         for i in range(0,len(imgUrls)):
             fileUrl=imgUrls[i].get('file')
+            fileUrl=fileUrl.replace('http://pic.w26.rocks/',preUrl)
             image_name=fileUrl.split("/")[-1]
             #判断文件或文件夹是否存在
             if not os.path.exists(image_name):
@@ -107,6 +111,8 @@ for num,value in enumerate(file,1):
             '''
         for i in range(0,len(imgUrls1)):
             fileUrl1=imgUrls1[i].get('file')
+            fileUrl1=fileUrl1.replace('http://pic.w26.rocks/',preUrl)
+            #fileUrl1='http://pic.w26.rocks/attachments/1906212318f9e42462ac7298ea.jpg'
             image_name1=fileUrl1.split("/")[-1]
             #判断文件或文件夹是否存在
             if not os.path.exists(image_name1):
@@ -119,6 +125,7 @@ for num,value in enumerate(file,1):
                 print(image_name1+"-1已存在")
         for i in range(0,len(imgUrls2)):
             fileUrl2=imgUrls2[i].get('file')
+            fileUrl=fileUrl2.replace('http://pic.w26.rocks/',preUrl)
             image_name2=fileUrl2.split("/")[-1]    
             #判断文件或文件夹是否存在
             if not os.path.exists(image_name2):
@@ -132,6 +139,7 @@ for num,value in enumerate(file,1):
         for i in range(0,len(imgUrls4)):
             print('------------')
             fileUrl2=imgUrls4[i].get('file')
+            fileUrl=fileUrl2.replace('http://pic.w26.rocks/',preUrl)
             image_name2=fileUrl2.split("/")[-1]
             #判断文件或文件夹是否存在
             if not os.path.exists(image_name2):
