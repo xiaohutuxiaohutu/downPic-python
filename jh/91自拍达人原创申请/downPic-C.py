@@ -50,10 +50,10 @@ def get_random_ip(ip_list):
     proxy_ip = {'http:':random_ip}
     return proxy_ip
 
-file=open("C:/workspace/downPic/jhy/91自拍达人原创申请/2019-06-26_0.txt")
+file=open("C:/workspace/downPic-python/jh/91自拍达人原创申请/2019-07-12_0.txt")
 ip_list=get_ip_list(proxyipurl)
-preUrl='http://f412.botkoplak.com/'
-osPrePath='C:/workspace/downPic/jhy/91自拍达人原创申请/'
+preUrl='http://f.w24.rocks/'
+osPrePath='C:/Users/23948/Pictures/Camera Roll/'
 #获取总行
 for num,value in enumerate(file,1):
     print('第'+str(num)+'行：')
