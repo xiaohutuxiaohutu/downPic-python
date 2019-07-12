@@ -49,8 +49,7 @@ def get_random_ip(ip_list):
     random_ip = 'http://' + random.choice(ip_list)
     proxy_ip = {'http:':random_ip}
     return proxy_ip
-
-file=open("D:/TP/91/jhy/91自拍达人原创申请/2019-06-30_0.txt")
+file=open("D:/TP/downPic-python/jh/91自拍达人原创申请/2019-07-07_0.txt")
 ip_list=get_ip_list(proxyipurl)
 preUrl='http://f.w24.rocks/'
 #获取总行数
@@ -76,12 +75,12 @@ for num,value in enumerate(file,1):
     imgUrls4 = itemSoup.select("body div[id='wrap'] div[id='postlist'] div[id] table tr td[class='postcontent'] div[class='defaultpost'] div div table tbody tr td a[href]")
     print('图片数量：'+str(len(imgUrls)) + '；图片数量1：'+str(len(imgUrls1)) + '；图片数量2：'+str(len(imgUrls2)) + '；图片数量4：'+str(len(imgUrls4)))
     if len(imgUrls)==0 and len(imgUrls1)==0 and len(imgUrls2)==0 and len(imgUrls4)==0:
-        os.chdir('D:/TP/91/jhy/91自拍达人原创申请/')
+        os.chdir('D:/TP/downPic-python/jh/91自拍达人原创申请/')
         f=open(datetime.datetime.now().strftime('%Y-%m-%d')+'_未下载.txt','a+')
         f.write('第'+str(num)+'行：'+line+','+newTitle+'\n')
         f.close()
     else:   
-        path='D:/TP/91/jhy/91自拍达人原创申请/'+datetime.datetime.now().strftime('%Y-%m-%d')+'/'+str(newTitle.strip())+'/'
+        path='D:/TP/'+datetime.datetime.now().strftime('%Y-%m-%d')+'/'+str(newTitle.strip())+'/'
         if not(os.path.exists(path)):
             os.makedirs(path)
             os.chdir(path)
