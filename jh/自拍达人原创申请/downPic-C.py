@@ -50,7 +50,7 @@ def get_random_ip(ip_list):
     proxy_ip = {'http:':random_ip}
     return proxy_ip
 
-file=open("C:/workspace/downPic-python/jh/自拍达人原创申请/2019-07-15_0.txt")
+file=open("C:/workspace/GitHub/downPic-python/jh/自拍达人原创申请/2019-07-17_0.txt")
 ip_list=get_ip_list(proxyipurl)
 preUrl='http://f.w24.rocks/'
 osPrePath='C:/Users/23948/Pictures/Camera Roll/'

@@ -14,7 +14,7 @@ else:
     print(u'linux')
 header = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 UBrowser/6.1.2107.204 Safari/537.36'}
-path='C:/workspace/downPic-python/jh/自拍达人原创申请/'
+path='C:/workspace/GitHub/downPic-python/jh/自拍达人原创申请/'
 preUrl='http://f.w24.rocks/'
 #获取代理IP
 def get_ip_list(proxyipurl):
@@ -49,7 +49,7 @@ proxyipurl='http://www.xicidaili.com/'
 ip_list=get_ip_list(proxyipurl)
 #用get方法打开url并发送headers
 temp=0
-for i in range(1,4):
+for i in range(1,2):
     print('第'+str(i)+'页')
     url="http://f.w24.rocks/forumdisplay.php?fid=19&orderby=dateline&filter=digest&page="+str(i)
     print(url)
