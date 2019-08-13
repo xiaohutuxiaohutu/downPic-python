@@ -108,7 +108,7 @@ def getPageCode(pageUrl):
         print
         req.request.headers
         return req.text
-    except urllib2.URLError, e:
+    except urllib2.URLError as e:
         if hasattr(e, 'reason'):
             print
             u"打开链接失败...", e.reason
