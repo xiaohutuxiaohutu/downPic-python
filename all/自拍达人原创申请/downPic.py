@@ -91,6 +91,8 @@ for num, value in enumerate(file, 1):
     print('图片数量2：' + str(len(imgUrls2)))
     print('图片数量4：' + str(len(imgUrls4)))
     if len(imgUrls) == 0 and len(imgUrls1) == 0 and len(imgUrls2) == 0:
+        if not (os.path.exists(osPrePath)):
+            os.makedirs(osPrePath)
         os.chdir(osPrePath)
         f = open(datetime.datetime.now().strftime('%Y-%m-%d') + '_未下载.txt', 'a+')
         f.write('第' + str(num) + '行：' + line + ',' + newTitle + '\n')
@@ -147,7 +149,7 @@ for num, value in enumerate(file, 1):
                 print(image_name2 + "-2已存在")
         for i in range(0, len(imgUrls4)):
             fileUrl2 = imgUrls4[i]  # .get('file')
-            fileUrl=fileUrl2.replace('http://pic.w26.rocks/',preUrl)
+            fileUrl = fileUrl2.replace('http://pic.w26.rocks/', preUrl)
             image_name2 = fileUrl2.split("/")[-1]
             # 判断文件或文件夹是否存在
             if not os.path.exists(image_name2):
