@@ -101,13 +101,6 @@ for num,value in enumerate(file,1):
                 f.close()
             else:
                 print(image_name+"-1已存在")
-            #判断文件是否存在
-            '''
-            if not os.path.isfile(image_name):
-                f=open(image_name,'wb')
-                f.write(imageUrl.content)
-                f.close()
-            '''
         for i in range(0,len(imgUrls1)):
             fileUrl1=imgUrls1[i].get('file')
             fileUrl1=fileUrl1.replace('http://pic.w26.rocks/',preUrl)
@@ -136,7 +129,6 @@ for num,value in enumerate(file,1):
             else:
                 print(image_name2+"-2已存在")
         for i in range(0,len(imgUrls4)):
-            print('------------')
             fileUrl2=imgUrls4[i].get('file')
             fileUrl=fileUrl2.replace('http://pic.w26.rocks/',preUrl)
             image_name2=fileUrl2.split("/")[-1]
